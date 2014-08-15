@@ -15,7 +15,7 @@
 	};
 
 	WeakReference.prototype.get = function get() {
-		return Object.getObjectById(this._objectId);
+		return OTG.getObjectById(this._objectId);
 	};
 	
 	global.WeakReference = WeakReference;
@@ -35,7 +35,7 @@
 		
 		var wMap = WeakReference(this._map);
 		
-		OTG.notifyOnCollection(objectId, function() {
+		OTG.notifyOnCollected(objectId, function() {
 			var map = wMap.get();
 			
 			if(map) delete map[objectId];
